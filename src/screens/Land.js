@@ -12,8 +12,10 @@ import {
  
 import { number } from "prop-types";
 import Categories from "../component/Categories"
+import ListItem from "../component/ListItem";
+import {flatListData} from '../Data';
 
-const NAVBAR_HEIGHT = 260;
+const NAVBAR_HEIGHT = 310;
 const STATUS_BAR_HEIGHT = Platform.select({ ios: 10, android: 0 });
  
 export default class Land extends React.Component {
@@ -102,8 +104,8 @@ export default class Land extends React.Component {
   };
   headerComponent=()=>{
     return(
-      <View>
-        <Text>eren</Text> 
+      <View style={{height:180}} >
+        <Text>aa</Text> 
         </View>
     )
   }
@@ -124,8 +126,8 @@ export default class Land extends React.Component {
             nestedScrollEnabled={true}
             contentContainerStyle={{
               paddingBottom: 135,
-              paddingHorizontal: 10,
-              paddingTop: this.state.is_header_ok ? 50 : 0,
+              // paddingHorizontal: 10,
+              paddingTop:  140 
             }}
             scrollEventThrottle={0.8}
             onScroll={Animated.event(
@@ -146,36 +148,11 @@ export default class Land extends React.Component {
             style={styles.flatStyle}
             showsHorizontalScrollIndicator={false}
             type={this.state.type}
-            data={[
-              1,
-              2,
-              34,
-              5,
-              5,
-              67,
-              7,
-              88,
-              9,
-              90,
-              0,
-              1,
-              23,
-              13,
-              213,
-              232121,
-              3213,
-              3123,
-              1312,
-              213,
-              21312,
-              3,
-            ]}
+            data={flatListData}
             renderItem={({ item }) => (
-              <View style={{ paddingHorizontal: 8 }}>
-                <Text style={{ height: 40 }}>alp</Text>
-              </View>
+         <ListItem item={item} />
             )}
-            numColumns={1}
+            numColumns={2}
             onEndReachedThreshold={0.3}
             keyExtractor={(item, index) => index.toString()}
             ref={(ref) => {
@@ -209,7 +186,8 @@ const styles = StyleSheet.create({
   screen: { backgroundColor: "#fff" },
 
   flatStyle: {
-    width: "100%",
+    width: "100%",     
+    paddingHorizontal:10
   },
 
   contentContainer: {
@@ -224,9 +202,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: "center",
-    backgroundColor:  'red',
-    borderBottomColor:  '#ccc',
-    borderBottomWidth: 1,
+    backgroundColor:  '#fff',   
     height: NAVBAR_HEIGHT,     
      
     // paddingTop: STATUS_BAR_HEIGHT,
