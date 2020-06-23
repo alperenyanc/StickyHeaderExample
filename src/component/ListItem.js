@@ -18,7 +18,7 @@ const ListItem = (props) => {
                 </View>
                 <View style={styles.title_box}>
                     <Text > {item.title} </Text>
-                    </View>
+            </View>
             </View>
             <TouchableOpacity
             activeOpacity={0.7}
