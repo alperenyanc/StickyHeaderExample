@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import { shadow} from "../assets/style/ShadowStyle"
+import {shadow} from '../assets/style/ShadowStyle';
 
 const CategoriesItem = (props) => {
   const {item} = props;
@@ -13,7 +13,7 @@ const CategoriesItem = (props) => {
           resizeMode="cover"
         />
       </View>
-      <View style={styles.title_box} >
+      <View style={styles.title_box}>
         <Text>{item.title}</Text>
       </View>
     </View>
@@ -25,9 +25,9 @@ export default CategoriesItem;
 const styles = StyleSheet.create({
   container: {
     height: 90,
-    width: 120,    
-    backgroundColor:'#fff',
-    borderRadius:5
+    width: 120,
+    backgroundColor: '#fff',
+    borderRadius: 5,
   },
   image_box: {
     height: 60,
@@ -38,16 +38,14 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
   },
-  title_box:{
-      width:'100%',
-      height:30,
-      justifyContent:'center',
-      alignItems:'center'
+  title_box: {
+    width: '100%',
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  title:{
-    fontSize:12,
-    fontWeight:'700'
-  }
-
-  
+  title: {
+    fontSize: 12,
+    fontWeight: '700',
+  },
 });

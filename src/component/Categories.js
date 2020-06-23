@@ -6,20 +6,22 @@ import {categoriesData} from '../Data';
 const Categories = () => {
   return (
     <View style={styles.mainHeader}>
-     <View style={styles.image_box} > 
-     <Image
-        style={styles.image}
-        resizeMode="cover"
-        source={imagesHeader.header_image}
-      />
-      <View style={styles.logo_box} >
+      <View style={styles.image_box}>
         <Image
-        style={styles.logo}
-        resizeMode="cover"
-        source={{uri:'https://galeri8.uludagsozluk.com/403/logo_738288.png'}}
+          style={styles.image}
+          resizeMode="cover"
+          source={imagesHeader.header_image}
         />
+        <View style={styles.logo_box}>
+          <Image
+            style={styles.logo}
+            resizeMode="cover"
+            source={{
+              uri: 'https://galeri8.uludagsozluk.com/403/logo_738288.png',
+            }}
+          />
         </View>
-     </View>
+      </View>
       <View style={styles.categories}>
         <FlatList
           horizontal={true}
@@ -47,27 +49,27 @@ const styles = StyleSheet.create({
   },
   categories: {
     width: '100%',
-    height: 120,   
+    height: 120,
     padding: 10,
   },
-  image_box:{
+  image_box: {
     height: 200,
     width: '100%',
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  logo_box:{
-    height:60,
-    width:60,
-    backgroundColor:'#fff',
-    position:'absolute',
-    borderRadius:50,
-    justifyContent:'center',
-    alignItems:'center'
+  logo_box: {
+    height: 60,
+    width: 60,
+    backgroundColor: '#fff',
+    position: 'absolute',
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  logo:{
-    height:50,
-    width:50,
-    borderRadius:30
-  }
+  logo: {
+    height: 50,
+    width: 50,
+    borderRadius: 30,
+  },
 });

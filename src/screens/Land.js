@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
@@ -7,17 +7,17 @@ import {
   Animated,
   Platform,
   Dimensions,
-  Image
-} from "react-native";
- 
-import { number } from "prop-types";
-import Categories from "../component/Categories"
-import ListItem from "../component/ListItem";
+  Image,
+} from 'react-native';
+
+import {number} from 'prop-types';
+import Categories from '../component/Categories';
+import ListItem from '../component/ListItem';
 import {flatListData} from '../Data';
 
 const NAVBAR_HEIGHT = 310;
-const STATUS_BAR_HEIGHT = Platform.select({ ios: 10, android: 0 });
- 
+const STATUS_BAR_HEIGHT = Platform.select({ios: 10, android: 0});
+
 export default class Land extends React.Component {
   constructor(props) {
     super(props, {
@@ -38,12 +38,12 @@ export default class Land extends React.Component {
             inputRange: [0, 1],
             outputRange: [0, 1],
             // useNativeDriver: true,
-            extrapolateLeft: "clamp",
+            extrapolateLeft: 'clamp',
           }),
-          offsetAnim
+          offsetAnim,
         ),
         0,
-        NAVBAR_HEIGHT - STATUS_BAR_HEIGHT
+        NAVBAR_HEIGHT - STATUS_BAR_HEIGHT,
       ),
 
       visible: true,
@@ -56,15 +56,15 @@ export default class Land extends React.Component {
   _scrollValue = 0;
 
   async componentDidMount() {
-    this.state.scrollAnim.addListener(({ value }) => {
+    this.state.scrollAnim.addListener(({value}) => {
       const diff = value - this._scrollValue;
       this._scrollValue = value;
       this._clampedScrollValue = Math.min(
         Math.max(this._clampedScrollValue + diff, 0),
-        NAVBAR_HEIGHT - STATUS_BAR_HEIGHT
+        NAVBAR_HEIGHT - STATUS_BAR_HEIGHT,
       );
     });
-    this.state.offsetAnim.addListener(({ value }) => {
+    this.state.offsetAnim.addListener(({value}) => {
       this._offsetValue = value;
     });
   }
@@ -81,10 +81,10 @@ export default class Land extends React.Component {
     Animated.event(
       [
         {
-          nativeEvent: { contentOffset: { y: this.state.scrollAnim } },
+          nativeEvent: {contentOffset: {y: this.state.scrollAnim}},
         },
       ],
-      { useNativeDriver: true }
+      {useNativeDriver: true},
     );
     clearTimeout(this._scrollEndTimer);
   };
@@ -102,22 +102,21 @@ export default class Land extends React.Component {
       useNativeDriver: true,
     }).start();
   };
-  headerComponent=()=>{
-    return(
-      <View style={{height:180}} >
-        <Text>aa</Text> 
-        </View>
-    )
-  }
+  headerComponent = () => {
+    return (
+      <View style={{height: 180}}>
+        <Text>aa</Text>
+      </View>
+    );
+  };
   render() {
-    const { clampedScroll } = this.state;
-    const { navigation } = this.props;
+    const {clampedScroll} = this.state;
+    const {navigation} = this.props;
     const navbarTranslate = clampedScroll.interpolate({
       inputRange: [0, NAVBAR_HEIGHT - STATUS_BAR_HEIGHT],
       outputRange: [0, -(NAVBAR_HEIGHT - 100)],
-      extrapolate: "clamp",
+      extrapolate: 'clamp',
     });
-   
 
     return (
       <View style={styles.screen}>
@@ -127,14 +126,14 @@ export default class Land extends React.Component {
             contentContainerStyle={{
               paddingBottom: 135,
               // paddingHorizontal: 10,
-              paddingTop:  140 
+              paddingTop: 140,
             }}
             scrollEventThrottle={0.8}
             onScroll={Animated.event(
               [
                 {
                   nativeEvent: {
-                    contentOffset: { y: this.state.scrollAnim },
+                    contentOffset: {y: this.state.scrollAnim},
                   },
                 },
               ],
@@ -142,16 +141,14 @@ export default class Land extends React.Component {
                 useNativeDriver: true,
                 // listener: ({ nativeEvent }) =>
                 //   this.state.scrollAnim.setValue(nativeEvent.contentOffset.y),
-              }
+              },
             )}
             showsVerticalScrollIndicator={false}
             style={styles.flatStyle}
             showsHorizontalScrollIndicator={false}
             type={this.state.type}
             data={flatListData}
-            renderItem={({ item }) => (
-         <ListItem item={item} />
-            )}
+            renderItem={({item}) => <ListItem item={item} />}
             numColumns={2}
             onEndReachedThreshold={0.3}
             keyExtractor={(item, index) => index.toString()}
@@ -169,13 +166,8 @@ export default class Land extends React.Component {
 
         <Animated.View
           // useNativeDriver={true}
-          style={[
-            styles.navBar,
-            { transform: [{ translateY: navbarTranslate }] },
-          ]}
-        >
+          style={[styles.navBar, {transform: [{translateY: navbarTranslate}]}]}>
           <Categories />
-          
         </Animated.View>
       </View>
     );
@@ -183,11 +175,11 @@ export default class Land extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: "#fff" },
+  screen: {backgroundColor: '#fff'},
 
   flatStyle: {
-    width: "100%",     
-    paddingHorizontal:10
+    width: '100%',
+    paddingHorizontal: 10,
   },
 
   contentContainer: {
@@ -197,16 +189,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   navBar: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    alignItems: "center",
-    backgroundColor:  '#fff',   
-    height: NAVBAR_HEIGHT,     
-     
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: NAVBAR_HEIGHT,
+
     // paddingTop: STATUS_BAR_HEIGHT,
   },
-  
-
 });
