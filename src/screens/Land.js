@@ -1,22 +1,12 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Animated,
-  Platform,
-  Dimensions,
-  Image,
-} from 'react-native';
-
+import {View, StyleSheet, Animated, Platform, SafeAreaView} from 'react-native';
 import {number} from 'prop-types';
 import Categories from '../component/Categories';
 import ListItem from '../component/ListItem';
 import {flatListData} from '../Data';
 
 const NAVBAR_HEIGHT = 310;
-const STATUS_BAR_HEIGHT = Platform.select({ios: 10, android: 0});
+const STATUS_BAR_HEIGHT = Platform.select({ios: 0, android: 0});
 
 export default class Land extends React.Component {
   constructor(props) {
@@ -103,15 +93,13 @@ export default class Land extends React.Component {
     }).start();
   };
   headerComponent = () => {
-    return (
-      <View style={{height: 180}}/>
-    );
+    return <View style={{height: 180}} />;
   };
   render() {
-    const {clampedScroll} = this.state;    
+    const {clampedScroll} = this.state;
     const navbarTranslate = clampedScroll.interpolate({
       inputRange: [0, NAVBAR_HEIGHT - STATUS_BAR_HEIGHT],
-      outputRange: [0, -(NAVBAR_HEIGHT - 100)],
+      outputRange: [0, -(NAVBAR_HEIGHT - 90)],
       extrapolate: 'clamp',
     });
 
@@ -172,11 +160,15 @@ export default class Land extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  screen: {backgroundColor: '#fff'},
+  screen: {
+    backgroundColor: '#fff',
+     
+  },
 
   flatStyle: {
     width: '100%',
     paddingHorizontal: 10,
+     
   },
 
   contentContainer: {

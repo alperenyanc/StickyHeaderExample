@@ -39,7 +39,7 @@ export default Categories;
 
 const styles = StyleSheet.create({
   mainHeader: {
-    height: 300,
+    height: 315,
     backgroundColor: '#fff',
     width: '100%',
   },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:5
+    marginBottom:15
   },
   logo_box: {
     height: 60,
