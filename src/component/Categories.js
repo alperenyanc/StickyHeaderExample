@@ -51,12 +51,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 120,
     padding: 10,
+    
   },
   image_box: {
     height: 200,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom:5
   },
   logo_box: {
     height: 60,

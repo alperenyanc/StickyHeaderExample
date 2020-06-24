@@ -104,14 +104,11 @@ export default class Land extends React.Component {
   };
   headerComponent = () => {
     return (
-      <View style={{height: 180}}>
-        <Text>aa</Text>
-      </View>
+      <View style={{height: 180}}/>
     );
   };
   render() {
-    const {clampedScroll} = this.state;
-    const {navigation} = this.props;
+    const {clampedScroll} = this.state;    
     const navbarTranslate = clampedScroll.interpolate({
       inputRange: [0, NAVBAR_HEIGHT - STATUS_BAR_HEIGHT],
       outputRange: [0, -(NAVBAR_HEIGHT - 100)],
