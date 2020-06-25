@@ -23,7 +23,8 @@ const ListItem = (props) => {
           />
         </View>
         <View style={styles.title_box}>
-          <Text> {item.title} </Text>
+          <Text style={styles.title} > {item.title} </Text>
+          <Text style={styles.price} > 5tl </Text>
         </View>
       </View>
       <TouchableOpacity
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   },
   image_box: {
     width: '100%',
-    height: '70%',
+    height: '60%',
     backgroundColor: '#ccc',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -89,9 +90,19 @@ const styles = StyleSheet.create({
   },
   title_box: {
     width: '100%',
-    height: '30%',
-
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: '40%',
+    backgroundColor:'#fff',
+    padding:5
+    
   },
+  title:{
+    paddingTop:5
+  },
+  price:{
+    color:'red',
+    paddingTop:5,
+    position:'absolute',
+    bottom:5,
+    left:5
+  }
 });

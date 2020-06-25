@@ -7,7 +7,7 @@ import {flatListData} from '../Data';
 
 const NAVBAR_HEIGHT = 310;
 const STATUS_BAR_HEIGHT = Platform.select({ios: 0, android: 0});
-
+ 
 export default class Land extends React.Component {
   constructor(props) {
     super(props, {
@@ -88,7 +88,7 @@ export default class Land extends React.Component {
 
     Animated.timing(this.state.offsetAnim, {
       toValue,
-      duration: 350,
+      duration: 100,
       useNativeDriver: true,
     }).start();
   };

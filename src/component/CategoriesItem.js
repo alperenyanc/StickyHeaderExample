@@ -4,7 +4,7 @@ import {shadow} from '../assets/style/ShadowStyle';
 
 const CategoriesItem = (props) => {
   const {item} = props;
-  return (
+  return (    
     <View style={[styles.container]}>
       <View style={styles.image_box}>
         <Image
