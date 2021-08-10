@@ -8,6 +8,8 @@ export default class App extends Component {
       <SafeAreaView   >
        
         {/* comment */}
+        {/* comment 2s */}
+
           <Land />
         
       </SafeAreaView>
