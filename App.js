@@ -7,7 +7,7 @@ export default class App extends Component {
     return (
       <SafeAreaView   >
        
-        
+        {/* comment */}
           <Land />
         
       </SafeAreaView>
